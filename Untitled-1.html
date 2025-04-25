@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>備品管理アプリ</title>
+        <!-- 外部CSSファイルをリンク -->
+        <link rel="stylesheet" href="Untitled-3.css">
+      </head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <h1>備品管理</h1>
+    </header>
+    <main>
+      <!-- 検索フォーム -->
+      <form id="search-form" class="form-section">
+        <input type="text" id="search" placeholder="機器名を検索" />
+        <select id="quantity">
+          <option value="1">1個</option>
+          <option value="2">2個</option>
+          <option value="3">3個</option>
+          <option value="4">4個</option>
+          <option value="5">5個</option>
+        </select>
+        <button type="submit">検索</button>
+      </form>
+
+      <!-- カード型備品リスト -->
+      <div id="card-list" class="card-list">
+        <div class="card-item" data-name="デスクトップPC" data-stock="10">デスクトップPC (在庫: 10)</div>
+        <div class="card-item" data-name="モニター" data-stock="10">モニター (在庫: 10)</div>
+        <div class="card-item" data-name="キーボード" data-stock="10">キーボード (在庫: 10)</div>
+        <div class="card-item" data-name="マウス" data-stock="10">マウス (在庫: 10)</div>
+        <div class="card-item" data-name="外付けハードディスク" data-stock="10">外付けハードディスク (在庫: 10)</div>
+        <div class="card-item" data-name="USBメモリ" data-stock="10">USBメモリ (在庫: 10)</div>
+        <div class="card-item" data-name="スピーカー" data-stock="10">スピーカー (在庫: 10)</div>
+        <div class="card-item" data-name="ヘッドセット" data-stock="10">ヘッドセット (在庫: 10)</div>
+        <div class="card-item" data-name="ウェブカメラ" data-stock="10">ウェブカメラ (在庫: 10)</div>
+        <div class="card-item" data-name="ドッキングステーション" data-stock="10">ドッキングステーション (在庫: 10)</div>
+      </div>
+    </main>
+    <footer class="app-footer">
+      <p>&copy; 2025 備品管理アプリ</p>
+    </footer>
+  </div>
+
+  <script>
+    // 検索機能と在庫数の減少
+    const searchForm = document.getElementById('search-form');
+    const searchInput = document.getElementById('search');
+    const quantitySelect = document.getElementById('quantity');
+    const cardList = document.getElementById('card-list');
+    const cards = cardList.getElementsByClassName('card-item');
+
+    searchForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const query = searchInput.value.trim().toLowerCase();
+      const quantity = parseInt(quantitySelect.value, 10);
+
+      // 機器名が入力されていない場合は処理を中断
+      if (!query) {
+        alert('機器名を入力してください。');
+        return;
+      }
+
+      let found = false;
+      Array.from(cards).forEach(card => {
+        const name = card.dataset.name.toLowerCase();
+        if (name.includes(query)) {
+          found = true;
+          const stock = parseInt(card.dataset.stock, 10);
+          if (stock >= quantity) {
+            card.dataset.stock = stock - quantity;
+            card.textContent = `${card.dataset.name} (在庫: ${card.dataset.stock})`;
+
+            // 在庫数が3以下の場合に赤字表示
+            if (stock - quantity <= 3) {
+              card.classList.add('low-stock');
+            }
+          } else {
+            alert(`${card.dataset.name}の在庫が不足しています。`);
+          }
+        }
+      });
+
+      if (!found) {
+        alert('該当する機器が見つかりませんでした。');
+      }
+    });
+  </script>
+</body>
+</html>

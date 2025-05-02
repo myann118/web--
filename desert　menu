@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>メニュー</title>
+    <link rel="stylesheet" href="./styles.css"> <!-- 共通CSS -->
+    <link rel="stylesheet" href="./menu.css"> <!-- メニュー専用CSS -->
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="navbar">
+                <li><a href="#">ホーム</a></li>
+                <li><a href="#">メニュー</a></li>
+                <li><a href="#">テイクアウト</a></li>
+                <li><a href="#">お席</a></li>
+                <li><a href="#">写真</a></li>
+                <li><a href="#">アクセス</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>メニュー</h1>
+        <ul class="menu-list">
+            <li>
+                <img src="https://imgfp.hotp.jp/IMGH/08/05/P043400805/P043400805_238.jpg" alt="紅はるかチーズケーキ">
+                <div class="menu-text">
+                    <h2>紅はるかチーズケーキ</h2>
+                    <p>645円(税込)</p>
+                    <p>テイクアウト可</p>
+                </div>
+            </li>
+            <li>
+                <img src="https://hatsuyukido-akagi.com/serviceimg/gourmet/314740/menu/289296/img1-1737952904872-841.jpg" alt="昭和のプリン">
+                <div class="menu-text">
+                    <h2>昭和のプリン</h2>
+                    <p>645円(税込)</p>
+                    <p>テイクアウト可</p>
+                </div>
+            </li>
+            <li>
+                <img src="https://tabiiro.jp/gourmet/s/314741-fujioka-hatsuyukido-fujioka/menu/289358/img1-1738031759976-9894.jpg" alt="水わらびもち">
+                <div class="menu-text">
+                    <h2>水わらびもち</h2>
+                    <p>345円(税込)</p>
+                    <p>テイクアウト可</p>
+                </div>
+            </li>
+            <li>
+                <img src="https://imgfp.hotp.jp/IMGH/63/81/P043016381/P043016381_238.jpg" alt="抹茶ティラミスパフェ">
+                <div class="menu-text">
+                    <h2>抹茶ティラミスパフェ</h2>
+                    <p>995円(税込)</p>
+                    <p>テイクアウト可</p>
+                </div>
+            </li>
+        </ul>
+    </main>
+</body>
+</html>

@@ -1,4 +1,3 @@
-/* 全体のリセット */
 body, h1, h2, ul, li, a {
     margin: 0;
     padding: 0;
